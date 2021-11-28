@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Specific file to avoid:
+
+data/pdf_filled/*.pdf
