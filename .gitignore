@@ -131,3 +131,4 @@ dmypy.json
 # Specific file to avoid:
 
 data/pdf_filled/*.pdf
+output_test/

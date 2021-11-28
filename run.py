@@ -4,7 +4,7 @@ from modules.cerfaReader import CerfaReader
 
 
 def main():
-    reader = CerfaReader()
+    reader = CerfaReader("data/pdf_filled/old_sample.pdf")
 
 
 if __name__ == '__main__':
