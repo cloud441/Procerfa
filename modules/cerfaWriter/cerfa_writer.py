@@ -2,18 +2,17 @@ import PyPDF2
 from typing import Dict
 
 from .utils import set_need_appearances_writer
+from modules.config import model_path
 
 
 class CerfaWriter():
 
     __filename: str
-    __model_filename: str
     __labels_dict: Dict[str, str]
 
 
-    def __init__(self, output_file_path, model_file_path, label_dict):
+    def __init__(self, output_file_path, label_dict):
         self.__filename = output_file_path
-        self.__model_filename = model_file_path
         self.__labels_dict = label_dict
 
 
@@ -27,7 +26,7 @@ class CerfaWriter():
 
 
     def annotate(self, annot_dict: Dict[str, str]) -> None:
-        model_reader = PyPDF2.PdfFileReader(self.__model_filename, strict=False)
+        model_reader = PyPDF2.PdfFileReader(model_path, strict=False)
 
         writer = PyPDF2.PdfFileWriter()
         set_need_appearances_writer(writer)
@@ -47,10 +46,6 @@ class CerfaWriter():
 
     def get_filename(self) -> str:
         return self.__filename
-
-
-    def get_model_filename(self) -> str:
-        return self.__model_filename
 
 
     def get_label_dict(self) -> Dict[str, str]:
