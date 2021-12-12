@@ -112,25 +112,6 @@ QProgressBar::chunk {
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QPushButton" name="button_download">
-      <property name="geometry">
-       <rect>
-        <x>350</x>
-        <y>510</y>
-        <width>141</width>
-        <height>37</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-radius: 7px;
-
-background-color: rgb(255, 172, 74);
-</string>
-      </property>
-      <property name="text">
-       <string>Télécharger</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="Title">
       <property name="geometry">
        <rect>
@@ -173,6 +154,22 @@ background-color: rgb(255, 172, 74);
       </property>
       <property name="text">
        <string>Convertir</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_download">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>500</y>
+        <width>130</width>
+        <height>37</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(252, 158, 48);</string>
+      </property>
+      <property name="text">
+       <string>Telecharger</string>
       </property>
      </widget>
     </widget>
