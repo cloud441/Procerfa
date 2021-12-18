@@ -13,10 +13,10 @@ class MainWindow(qtw.QWidget, Ui_Form):
         self.button_browse.clicked.connect(self.browse)
 
     def browse(self):
-        download_path = str(Path.home() / "/Donwloads")
+        download_path = str(Path.home() / "Downloads")
 
-        fname = QFileDialog.getOpenFileName(self, 'Open File', download_path)
-        #qtw.QMessageBox.information(self, 'Browse', 'Coucou je suis bien la')
+        fname = QFileDialog.getOpenFileName(self, 'Open File', download_path, 'PDF file (*.pdf)')
+        self.filename_edit.setText(fname[0].split("/")[-1])
 
 if __name__ == '__main__':
     app = qtw.QApplication([])
