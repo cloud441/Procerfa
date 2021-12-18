@@ -1,4 +1,5 @@
 import PyPDF2
+import re
 from typing import Dict
 
 from .utils import set_need_appearances_writer
@@ -20,7 +21,19 @@ class CerfaWriter():
         fields_update = {}
         for old_label, new_label in self.__labels_dict.items():
             if (old_label in annot_dict) and (annot_dict[old_label] != ""):
-                fields_update[new_label] = annot_dict[old_label]
+                fields_update[new_label] = annot_dict.pop(old_label)
+
+        # Specific page two listing according to label_match dict:
+        pattern = re.compile("[A-X][0-9]+$")
+        for k, v in annot_dict.items():
+            if pattern.match(k):
+                padding = 2 if (int(k[1:]) > 6) else 0
+                new_key = f"c{(ord(k[0]) - ord('A')) * 22 + padding + int(k[1:])}"
+                if (k[1:] == "14") and (f"c{int(new_key[1:]) - 1}" in fields_update):
+                    fields_update[f"c{int(new_key[1:]) - 1}"] += " " + v
+                else:
+                    fields_update[new_key] = v
+
 
         return fields_update
 
