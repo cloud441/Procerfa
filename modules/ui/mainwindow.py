@@ -16,6 +16,9 @@ class MainWindow(qtw.QWidget, Ui_Form):
         self.writer = None
         self.button_browse.clicked.connect(self.browse)
         self.button_process.clicked.connect(self.convert)
+        self.button_download.clicked.connect(self.download)
+        self.button_process.setEnabled(False)
+        self.button_download.setEnabled(False)
 
     def browse(self):
         download_path = str(Path.home() / "Downloads")
@@ -30,6 +33,8 @@ class MainWindow(qtw.QWidget, Ui_Form):
 
         else:
            self.reader = CerfaReader(self.fname[0])
+           self.button_process.setEnabled(True)
+
 
     def convert(self):
         if (self.reader == None):
@@ -39,6 +44,15 @@ class MainWindow(qtw.QWidget, Ui_Form):
         output_file = f"{'/'.join(path_list[:-1])}/{path_list[-1][:-4]}_procerfa.pdf"
         self.writer = CerfaWriter(output_file, config.label_match_dict)
         self.writer.annotate(self.reader.get_annot_dict())
+
+        self.button_process.setEnabled(False)
+        self.button_download.setEnabled(True)
+
+
+    def download(self):
+        self.writer.download()
+        self.button_download.setEnabled(False)
+
 
 if __name__ == '__main__':
     app = qtw.QApplication([])

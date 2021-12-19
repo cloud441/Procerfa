@@ -41,20 +41,21 @@ class CerfaWriter():
     def annotate(self, annot_dict: Dict[str, str]) -> None:
         model_reader = PyPDF2.PdfFileReader(model_path, strict=False)
 
-        writer = PyPDF2.PdfFileWriter()
-        set_need_appearances_writer(writer)
+        self.writer = PyPDF2.PdfFileWriter()
+        set_need_appearances_writer(self.writer)
 
         update_fields = self.__build_fields_update(annot_dict)
 
         for page_idx in range(model_reader.getNumPages()):
             page = model_reader.getPage(page_idx)
 
-            writer.updatePageFormFieldValues(page, fields=update_fields)
-            writer.addPage(page)
+            self.writer.updatePageFormFieldValues(page, fields=update_fields)
+            self.writer.addPage(page)
 
+
+    def download(self):
         with open(self.__filename, 'wb') as f:
-            writer.write(f)
-
+            self.writer.write(f)
 
 
     def get_filename(self) -> str:
