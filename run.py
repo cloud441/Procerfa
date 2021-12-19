@@ -7,7 +7,7 @@ from modules.cerfaReader import CerfaReader
 from modules.cerfaWriter import CerfaWriter
 
 
-def parse_arg():
+def parse_arg() -> argparse.Namespace:
 
     parser = argparse.ArgumentParser(description='Personal information')
     parser.add_argument('-i', '--input', dest='input_file', type=str, help='path to the input Cerfa file to read.')
