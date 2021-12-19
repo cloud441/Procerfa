@@ -1,4 +1,4 @@
-from qt_ui import Ui_Form
+from .qt_ui import Ui_Form
 from pathlib import Path
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
