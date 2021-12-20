@@ -1,3 +1,4 @@
+import os
 from .qt_ui import Ui_Form
 from pathlib import Path
 from PyQt5 import QtWidgets as qtw
@@ -21,13 +22,13 @@ class MainWindow(qtw.QWidget, Ui_Form):
         self.button_download.setEnabled(False)
 
     def browse(self):
-        download_path = str(Path.home() / "Downloads")
+        download_path = str(Path.home()) + os.sep + "Downloads"
         self.fname = QFileDialog.getOpenFileName(self, 'Open File', download_path, 'PDF file (*.pdf)')
 
         if (self.fname[0] == ""):
             return
 
-        self.filename_edit.setText(self.fname[0].split("/")[-1])
+        self.filename_edit.setText(self.fname[0].split(os.sep)[-1])
         if (self.fname[0].split(".")[-1].lower() != "pdf"):
             qtw.QMessageBox.critical(self, "Erreur Format","Le fichier n'est pas en format PDF.")
 
@@ -40,8 +41,8 @@ class MainWindow(qtw.QWidget, Ui_Form):
         if (self.reader == None):
             return
 
-        path_list = self.fname[0].split("/")
-        output_file = f"{'/'.join(path_list[:-1])}/{path_list[-1][:-4]}_procerfa.pdf"
+        path_list = self.fname[0].split("os.sep")
+        output_file = f"{os.sep.join(path_list[:-1])}{os.sep}{path_list[-1][:-4]}_procerfa.pdf"
         self.writer = CerfaWriter(output_file, config.label_match_dict)
         self.writer.annotate(self.reader.get_annot_dict())
 
