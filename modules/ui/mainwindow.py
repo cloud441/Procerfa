@@ -41,9 +41,7 @@ class MainWindow(qtw.QWidget, Ui_Form):
         if (self.reader == None):
             return
 
-        path_list = self.fname[0].split("os.sep")
-        output_file = f"{os.sep.join(path_list[:-1])}{os.sep}{path_list[-1][:-4]}_procerfa.pdf"
-        self.writer = CerfaWriter(output_file, config.label_match_dict)
+        self.writer = CerfaWriter(config.label_match_dict)
         self.writer.annotate(self.reader.get_annot_dict())
 
         self.button_process.setEnabled(False)
@@ -51,7 +49,10 @@ class MainWindow(qtw.QWidget, Ui_Form):
 
 
     def download(self):
-        self.writer.download()
+        #TODO: open file search to select an output dir.
+
+        output_file = f"{self.fname[0][:-4]}_procerfa.pdf"
+        self.writer.download(output_file)
         self.button_download.setEnabled(False)
 
 

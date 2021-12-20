@@ -12,8 +12,7 @@ class CerfaWriter():
     __labels_dict: Dict[str, str]
 
 
-    def __init__(self, output_file_path, label_dict):
-        self.__filename = output_file_path
+    def __init__(self, label_dict):
         self.__labels_dict = label_dict
 
 
@@ -53,13 +52,9 @@ class CerfaWriter():
             self.writer.addPage(page)
 
 
-    def download(self):
-        with open(self.__filename, 'wb') as f:
+    def download(self, filepath):
+        with open(filepath, 'wb') as f:
             self.writer.write(f)
-
-
-    def get_filename(self) -> str:
-        return self.__filename
 
 
     def get_label_dict(self) -> Dict[str, str]:

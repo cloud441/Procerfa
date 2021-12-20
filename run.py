@@ -24,9 +24,10 @@ def main() -> None:
         return
 
     reader = CerfaReader(args.input_file)
-    writer = CerfaWriter(args.output_file, config.label_match_dict)
+    writer = CerfaWriter(config.label_match_dict)
 
     writer.annotate(reader.get_annot_dict())
+    writer.download(args.output_file)
 
 if __name__ == '__main__':
     main()
