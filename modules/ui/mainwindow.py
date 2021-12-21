@@ -28,7 +28,7 @@ class MainWindow(qtw.QWidget, Ui_Form):
         if (self.fname[0] == ""):
             return
 
-        self.filename_edit.setText(self.fname[0].split(os.sep)[-1])
+        self.filename_edit.setText(self.fname[0].split('/')[-1])
         if (self.fname[0].split(".")[-1].lower() != "pdf"):
             qtw.QMessageBox.critical(self, "Erreur Format","Le fichier n'est pas en format PDF.")
 
