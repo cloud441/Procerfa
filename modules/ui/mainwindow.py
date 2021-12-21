@@ -33,8 +33,13 @@ class MainWindow(qtw.QWidget, Ui_Form):
             qtw.QMessageBox.critical(self, "Erreur Format","Le fichier n'est pas en format PDF.")
 
         else:
-           self.reader = CerfaReader(self.fname[0])
-           self.button_process.setEnabled(True)
+            try:
+                self.reader = CerfaReader(self.fname[0])
+                self.button_process.setEnabled(True)
+            except RuntimeError:
+                qtw.QMessageBox.critical(self, "Erreur Format","Le fichier ne suit pas le modèle Cerfa du logiciel ou n'est pas un PDF.")
+
+
 
 
     def convert(self):

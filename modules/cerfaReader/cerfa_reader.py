@@ -16,7 +16,7 @@ class CerfaReader():
             reader = PyPDF2.PdfFileReader(f)
 
             if (reader.getNumPages() != 2):
-                raise RunTimeError("Error: input Cerfa PDF doesn't fit the model page number.")
+                raise RuntimeError("Error: input Cerfa PDF doesn't fit the model page number.")
 
             for page_idx in range(reader.getNumPages()):
                 page = reader.getPage(page_idx)
