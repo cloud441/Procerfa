@@ -37,22 +37,6 @@ class Ui_Form(object):
         self.button_browse.setFont(font)
         self.button_browse.setStyleSheet("background-color: rgb(0, 128, 255);")
         self.button_browse.setObjectName("button_browse")
-        self.progressBar = QtWidgets.QProgressBar(self.dropShadowFrame)
-        self.progressBar.setGeometry(QtCore.QRect(220, 430, 401, 31))
-        self.progressBar.setStyleSheet("QProgressBar {\n"
-"    background-color: rgb(85, 87, 83);\n"
-"    color: rgb(200, 200, 200);\n"
-"    border-style: none;\n"
-"    border-radius: 7px;\n"
-"    text-align: center;\n"
-"}\n"
-"QProgressBar::chunk {\n"
-"    border-radius: 7px;\n"
-"    \n"
-"    background-color: qlineargradient(spread:pad, x1:0.0492958, y1:0.590909, x2:1, y2:0.590909, stop:0 rgba(255, 127, 0, 255), stop:1 rgba(255, 236, 80, 255));\n"
-"}")
-        self.progressBar.setProperty("value", 24)
-        self.progressBar.setObjectName("progressBar")
         self.filename_edit = QtWidgets.QLineEdit(self.dropShadowFrame)
         self.filename_edit.setGeometry(QtCore.QRect(320, 320, 201, 34))
         self.filename_edit.setAlignment(QtCore.Qt.AlignCenter)
@@ -74,7 +58,7 @@ class Ui_Form(object):
         self.button_process.setStyleSheet("background-color: rgb(0, 128, 255);")
         self.button_process.setObjectName("button_process")
         self.button_download = QtWidgets.QPushButton(self.dropShadowFrame)
-        self.button_download.setGeometry(QtCore.QRect(350, 500, 130, 37))
+        self.button_download.setGeometry(QtCore.QRect(350, 400, 130, 37))
         self.button_download.setStyleSheet("background-color: rgb(252, 158, 48);")
         self.button_download.setObjectName("button_download")
         self.verticalLayout.addWidget(self.dropShadowFrame)
