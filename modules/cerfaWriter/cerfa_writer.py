@@ -1,6 +1,7 @@
 import PyPDF2
 import re
 from typing import Dict
+from PyPDF2.generic import BooleanObject, NameObject, NumberObject
 
 from .utils import set_need_appearances_writer
 from modules.config import model_path
@@ -41,7 +42,7 @@ class CerfaWriter():
         model_reader = PyPDF2.PdfFileReader(model_path, strict=False)
 
         self.writer = PyPDF2.PdfFileWriter()
-        set_need_appearances_writer(self.writer)
+        self.writer = set_need_appearances_writer(self.writer)
 
         update_fields = self.__build_fields_update(annot_dict)
 
@@ -50,6 +51,10 @@ class CerfaWriter():
 
             self.writer.updatePageFormFieldValues(page, fields=update_fields)
             self.writer.addPage(page)
+
+            for annot in page['/Annots']:
+                annot_obj = annot.getObject()
+                annot_obj.update({NameObject("/Ff"): NumberObject(1)})
 
 
     def download(self, filepath):

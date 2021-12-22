@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Form(object):
     def setupUi(self, Form):
-        Form.setObjectName("Form")
+        Form.setObjectName("Procerfa")
         Form.resize(841, 650)
         Form.setStyleSheet("Qframe {\n"
 "    background-color: rgb(68, 75, 84);\n"
@@ -68,12 +68,12 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Procerfa"))
         self.button_browse.setText(_translate("Form", "Parcourir"))
         self.filename_edit.setText(_translate("Form", "..."))
         self.Title.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:48pt; color:#ff7f00;\">P</span><span style=\" font-size:48pt; font-weight:400; color:#0080ff;\">ro</span><span style=\" font-size:48pt; color:#ff7f00;\">C</span><span style=\" font-size:48pt; font-weight:400; color:#0080ff;\">erfa</span></p></body></html>"))
         self.button_process.setText(_translate("Form", "Convertir"))
-        self.button_download.setText(_translate("Form", "Telecharger"))
+        self.button_download.setText(_translate("Form", "Télecharger"))
 
 
 if __name__ == "__main__":
