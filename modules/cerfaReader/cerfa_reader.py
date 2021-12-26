@@ -31,6 +31,11 @@ class CerfaReader():
 
                         self.__annot_dict[category] = text
 
+    def add_ui_fields(self, ge_code: str, file_nb: str) -> None:
+        self.__annot_dict['ui_gecode'] = ge_code
+        self.__annot_dict['ui_filenb'] = file_nb
+
+
 
     def get_filename(self) -> str:
         return self.__filename

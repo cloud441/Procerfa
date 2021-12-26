@@ -28,16 +28,24 @@ class MainWindow(qtw.QWidget, Ui_Form):
         if (self.fname[0] == ""):
             return
 
+#        if (self.ge_code_edit == ""):
+#            qtw.QMessageBox.critical(self, "Erreur Entrée","Vous devez précisez le numéro GE dans la case prévue à cet effet.\nL'entrée du numéro de dossier dans la seconde case est facultative.")
+#            return
+
+
         self.filename_edit.setText(self.fname[0].split('/')[-1])
         if (self.fname[0].split(".")[-1].lower() != "pdf"):
             qtw.QMessageBox.critical(self, "Erreur Format","Le fichier n'est pas en format PDF.")
+            return
 
-        else:
-            try:
-                self.reader = CerfaReader(self.fname[0])
-                self.button_process.setEnabled(True)
-            except RuntimeError:
-                qtw.QMessageBox.critical(self, "Erreur Format","Le fichier ne suit pas le modèle Cerfa du logiciel ou n'est pas un PDF.")
+        try:
+            self.reader = CerfaReader(self.fname[0])
+            #self.ge_code_edit = "66666"
+            #self.file_nb_edit = "COUCOU MEC"
+            #self.reader.add_ui_fields(self.ge_code_edit, self.file_nb_edit)
+            self.button_process.setEnabled(True)
+        except RuntimeError:
+            qtw.QMessageBox.critical(self, "Erreur Format","Le fichier ne suit pas le modèle Cerfa du logiciel ou n'est pas un PDF.")
 
 
 

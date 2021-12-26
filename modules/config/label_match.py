@@ -39,5 +39,7 @@ label_match_dict= {
         'Z5': 'c575',
         'Z10': 'c576',
         'Z11': 'c577',
-        'Z12': 'c578'
+        'Z12': 'c578',
+        'ui_gecode': 'a13',
+        'ui_filenb': ""
         }
