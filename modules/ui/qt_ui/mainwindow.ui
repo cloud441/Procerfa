@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Procerfa</class>
+ <widget class="QWidget" name="Procerfa">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -79,7 +79,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>...</string>
+       <string/>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -133,7 +133,7 @@
       <property name="geometry">
        <rect>
         <x>350</x>
-        <y>400</y>
+        <y>490</y>
         <width>130</width>
         <height>37</height>
        </rect>
@@ -142,9 +142,98 @@
        <string notr="true">background-color: rgb(252, 158, 48);</string>
       </property>
       <property name="text">
-       <string>Telecharger</string>
+       <string>Télécharger</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="ge_code_edit">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>380</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="file_nb_edit">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>430</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>380</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>code GE:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>430</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>numéro de dossier:</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>36</x>
+        <y>370</y>
+        <width>281</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255, 255, 255, 40);
+border-radius: 7px;
+border: 1px solid;
+border-color: rgb(252, 158, 48)
+
+</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <zorder>label</zorder>
+     <zorder>label_2</zorder>
+     <zorder>line</zorder>
+     <zorder>button_browse</zorder>
+     <zorder>filename_edit</zorder>
+     <zorder>Title</zorder>
+     <zorder>button_process</zorder>
+     <zorder>button_download</zorder>
+     <zorder>ge_code_edit</zorder>
+     <zorder>file_nb_edit</zorder>
     </widget>
    </item>
   </layout>

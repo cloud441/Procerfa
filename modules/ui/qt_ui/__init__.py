@@ -1,1 +1,1 @@
-from .mainwindow import Ui_Form
+from .mainwindow import Ui_Procerfa

@@ -1,5 +1,5 @@
 import os
-from .qt_ui import Ui_Form
+from .qt_ui import Ui_Procerfa
 from pathlib import Path
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
@@ -8,7 +8,7 @@ from modules.cerfaReader import CerfaReader
 from modules import config
 from modules.cerfaWriter import CerfaWriter
 
-class MainWindow(qtw.QWidget, Ui_Form):
+class MainWindow(qtw.QWidget, Ui_Procerfa):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -20,6 +20,7 @@ class MainWindow(qtw.QWidget, Ui_Form):
         self.button_download.clicked.connect(self.download)
         self.button_process.setEnabled(False)
         self.button_download.setEnabled(False)
+        self.ge_code_edit.setMaxLength(5)
 
     def browse(self):
         download_path = str(Path.home()) + os.sep + "Downloads"
@@ -28,11 +29,6 @@ class MainWindow(qtw.QWidget, Ui_Form):
         if (self.fname[0] == ""):
             return
 
-#        if (self.ge_code_edit == ""):
-#            qtw.QMessageBox.critical(self, "Erreur Entrée","Vous devez précisez le numéro GE dans la case prévue à cet effet.\nL'entrée du numéro de dossier dans la seconde case est facultative.")
-#            return
-
-
         self.filename_edit.setText(self.fname[0].split('/')[-1])
         if (self.fname[0].split(".")[-1].lower() != "pdf"):
             qtw.QMessageBox.critical(self, "Erreur Format","Le fichier n'est pas en format PDF.")
@@ -40,9 +36,6 @@ class MainWindow(qtw.QWidget, Ui_Form):
 
         try:
             self.reader = CerfaReader(self.fname[0])
-            #self.ge_code_edit = "66666"
-            #self.file_nb_edit = "COUCOU MEC"
-            #self.reader.add_ui_fields(self.ge_code_edit, self.file_nb_edit)
             self.button_process.setEnabled(True)
         except RuntimeError:
             qtw.QMessageBox.critical(self, "Erreur Format","Le fichier ne suit pas le modèle Cerfa du logiciel ou n'est pas un PDF.")
@@ -53,6 +46,12 @@ class MainWindow(qtw.QWidget, Ui_Form):
     def convert(self):
         if (self.reader == None):
             return
+
+        if (self.ge_code_edit.text() == ""):
+            qtw.QMessageBox.critical(self, "Erreur Entrée","Vous devez précisez le numéro GE dans la case prévue à cet effet.\nL'entrée du numéro de dossier dans la seconde case est facultative.")
+            return
+
+        self.reader.add_ui_fields(self.ge_code_edit.text(), self.file_nb_edit.text())
 
         self.writer = CerfaWriter(config.label_match_dict)
         self.writer.annotate(self.reader.get_annot_dict())

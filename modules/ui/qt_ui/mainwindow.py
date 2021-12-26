@@ -11,18 +11,18 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Procerfa")
-        Form.resize(841, 650)
-        Form.setStyleSheet("Qframe {\n"
+class Ui_Procerfa(object):
+    def setupUi(self, Procerfa):
+        Procerfa.setObjectName("Procerfa")
+        Procerfa.resize(841, 650)
+        Procerfa.setStyleSheet("Qframe {\n"
 "    background-color: rgb(68, 75, 84);\n"
 "}")
-        self.verticalLayout = QtWidgets.QVBoxLayout(Form)
+        self.verticalLayout = QtWidgets.QVBoxLayout(Procerfa)
         self.verticalLayout.setContentsMargins(10, 10, 10, 10)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.dropShadowFrame = QtWidgets.QFrame(Form)
+        self.dropShadowFrame = QtWidgets.QFrame(Procerfa)
         self.dropShadowFrame.setStyleSheet("QFrame {\n"
 "    \n"
 "    background-color: rgb(46, 52, 54);\n"
@@ -39,6 +39,7 @@ class Ui_Form(object):
         self.button_browse.setObjectName("button_browse")
         self.filename_edit = QtWidgets.QLineEdit(self.dropShadowFrame)
         self.filename_edit.setGeometry(QtCore.QRect(320, 320, 201, 34))
+        self.filename_edit.setText("")
         self.filename_edit.setAlignment(QtCore.Qt.AlignCenter)
         self.filename_edit.setObjectName("filename_edit")
         self.Title = QtWidgets.QLabel(self.dropShadowFrame)
@@ -58,29 +59,67 @@ class Ui_Form(object):
         self.button_process.setStyleSheet("background-color: rgb(0, 128, 255);")
         self.button_process.setObjectName("button_process")
         self.button_download = QtWidgets.QPushButton(self.dropShadowFrame)
-        self.button_download.setGeometry(QtCore.QRect(350, 400, 130, 37))
+        self.button_download.setGeometry(QtCore.QRect(350, 490, 130, 37))
         self.button_download.setStyleSheet("background-color: rgb(252, 158, 48);")
         self.button_download.setObjectName("button_download")
+        self.ge_code_edit = QtWidgets.QLineEdit(self.dropShadowFrame)
+        self.ge_code_edit.setGeometry(QtCore.QRect(180, 380, 111, 21))
+        self.ge_code_edit.setText("")
+        self.ge_code_edit.setAlignment(QtCore.Qt.AlignCenter)
+        self.ge_code_edit.setObjectName("ge_code_edit")
+        self.file_nb_edit = QtWidgets.QLineEdit(self.dropShadowFrame)
+        self.file_nb_edit.setGeometry(QtCore.QRect(170, 430, 131, 21))
+        self.file_nb_edit.setText("")
+        self.file_nb_edit.setAlignment(QtCore.Qt.AlignCenter)
+        self.file_nb_edit.setObjectName("file_nb_edit")
+        self.label = QtWidgets.QLabel(self.dropShadowFrame)
+        self.label.setGeometry(QtCore.QRect(110, 380, 51, 21))
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.dropShadowFrame)
+        self.label_2.setGeometry(QtCore.QRect(50, 430, 121, 31))
+        self.label_2.setObjectName("label_2")
+        self.line = QtWidgets.QFrame(self.dropShadowFrame)
+        self.line.setGeometry(QtCore.QRect(36, 370, 281, 101))
+        self.line.setStyleSheet("background-color: rgba(255, 255, 255, 40);\n"
+"border-radius: 7px;\n"
+"border: 1px solid;\n"
+"border-color: rgb(252, 158, 48)\n"
+"\n"
+"")
+        self.line.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.label.raise_()
+        self.label_2.raise_()
+        self.line.raise_()
+        self.button_browse.raise_()
+        self.filename_edit.raise_()
+        self.Title.raise_()
+        self.button_process.raise_()
+        self.button_download.raise_()
+        self.ge_code_edit.raise_()
+        self.file_nb_edit.raise_()
         self.verticalLayout.addWidget(self.dropShadowFrame)
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(Procerfa)
+        QtCore.QMetaObject.connectSlotsByName(Procerfa)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, Procerfa):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Procerfa"))
-        self.button_browse.setText(_translate("Form", "Parcourir"))
-        self.filename_edit.setText(_translate("Form", "..."))
-        self.Title.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:48pt; color:#ff7f00;\">P</span><span style=\" font-size:48pt; font-weight:400; color:#0080ff;\">ro</span><span style=\" font-size:48pt; color:#ff7f00;\">C</span><span style=\" font-size:48pt; font-weight:400; color:#0080ff;\">erfa</span></p></body></html>"))
-        self.button_process.setText(_translate("Form", "Convertir"))
-        self.button_download.setText(_translate("Form", "Télecharger"))
+        Procerfa.setWindowTitle(_translate("Procerfa", "Form"))
+        self.button_browse.setText(_translate("Procerfa", "Parcourir"))
+        self.Title.setText(_translate("Procerfa", "<html><head/><body><p><span style=\" font-size:48pt; color:#ff7f00;\">P</span><span style=\" font-size:48pt; font-weight:400; color:#0080ff;\">ro</span><span style=\" font-size:48pt; color:#ff7f00;\">C</span><span style=\" font-size:48pt; font-weight:400; color:#0080ff;\">erfa</span></p></body></html>"))
+        self.button_process.setText(_translate("Procerfa", "Convertir"))
+        self.button_download.setText(_translate("Procerfa", "Télécharger"))
+        self.label.setText(_translate("Procerfa", "code GE:"))
+        self.label_2.setText(_translate("Procerfa", "numéro de dossier:"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
+    Procerfa = QtWidgets.QWidget()
+    ui = Ui_Procerfa()
+    ui.setupUi(Procerfa)
+    Procerfa.show()
     sys.exit(app.exec_())
