@@ -60,7 +60,6 @@
       <property name="font">
        <font>
         <family>Open Sans</family>
-        <pointsize>9</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -123,11 +122,6 @@
         <height>37</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-       </font>
-      </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(0, 128, 255);</string>
       </property>
@@ -143,11 +137,6 @@
         <width>130</width>
         <height>37</height>
        </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(252, 158, 48);</string>
@@ -175,9 +164,9 @@
      <widget class="QLineEdit" name="file_nb_edit">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>170</x>
         <y>430</y>
-        <width>111</width>
+        <width>131</width>
         <height>21</height>
        </rect>
       </property>
@@ -191,16 +180,11 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>110</x>
         <y>380</y>
-        <width>71</width>
+        <width>51</width>
         <height>21</height>
        </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-       </font>
       </property>
       <property name="text">
        <string>code GE:</string>
@@ -209,28 +193,23 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>420</y>
-        <width>141</width>
+        <x>50</x>
+        <y>430</y>
+        <width>121</width>
         <height>31</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-       </font>
-      </property>
       <property name="text">
-       <string>num. de dossier:</string>
+       <string>numéro de dossier:</string>
       </property>
      </widget>
      <widget class="Line" name="line">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>36</x>
         <y>370</y>
-        <width>291</width>
-        <height>91</height>
+        <width>281</width>
+        <height>101</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -248,19 +227,14 @@ border-color: rgb(252, 158, 48)
      <widget class="QCheckBox" name="readonly_checkbox">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>540</y>
-        <width>201</width>
+        <x>340</x>
+        <y>530</y>
+        <width>141</width>
         <height>26</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-       </font>
-      </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);</string>
+       <string notr="true">checkBox-&gt;setStyleSheet(&quot;QCheckBox { color: white }&quot;);</string>
       </property>
       <property name="text">
        <string>PDF non-modifiable</string>
