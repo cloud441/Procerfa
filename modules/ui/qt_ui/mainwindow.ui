@@ -224,6 +224,22 @@ border-color: rgb(252, 158, 48)
        <enum>Qt::Vertical</enum>
       </property>
      </widget>
+     <widget class="QCheckBox" name="readonly_checkbox">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>530</y>
+        <width>141</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">checkBox-&gt;setStyleSheet(&quot;QCheckBox { color: white }&quot;);</string>
+      </property>
+      <property name="text">
+       <string>PDF non-modifiable</string>
+      </property>
+     </widget>
      <zorder>label</zorder>
      <zorder>label_2</zorder>
      <zorder>line</zorder>
@@ -234,6 +250,7 @@ border-color: rgb(252, 158, 48)
      <zorder>button_download</zorder>
      <zorder>ge_code_edit</zorder>
      <zorder>file_nb_edit</zorder>
+     <zorder>readonly_checkbox</zorder>
     </widget>
    </item>
   </layout>

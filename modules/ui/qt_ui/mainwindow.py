@@ -89,6 +89,10 @@ class Ui_Procerfa(object):
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
+        self.readonly_checkbox = QtWidgets.QCheckBox(self.dropShadowFrame)
+        self.readonly_checkbox.setGeometry(QtCore.QRect(340, 530, 141, 26))
+        self.readonly_checkbox.setStyleSheet("checkBox->setStyleSheet(\"QCheckBox { color: white }\");")
+        self.readonly_checkbox.setObjectName("readonly_checkbox")
         self.label.raise_()
         self.label_2.raise_()
         self.line.raise_()
@@ -99,6 +103,7 @@ class Ui_Procerfa(object):
         self.button_download.raise_()
         self.ge_code_edit.raise_()
         self.file_nb_edit.raise_()
+        self.readonly_checkbox.raise_()
         self.verticalLayout.addWidget(self.dropShadowFrame)
 
         self.retranslateUi(Procerfa)
@@ -113,6 +118,7 @@ class Ui_Procerfa(object):
         self.button_download.setText(_translate("Procerfa", "Télécharger"))
         self.label.setText(_translate("Procerfa", "code GE:"))
         self.label_2.setText(_translate("Procerfa", "numéro de dossier:"))
+        self.readonly_checkbox.setText(_translate("Procerfa", "PDF non-modifiable"))
 
 
 if __name__ == "__main__":

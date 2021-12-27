@@ -53,7 +53,7 @@ class CerfaWriter():
 
             self.writer.updatePageFormFieldValues(page, fields=update_fields)
             if (page_idx == 0):
-                page = self.add_text_box(page, annot_dict['ui_filenb'])
+                page = self.add_text_box(page, annot_dict['Texte1'])
 
             self.writer.addPage(page)
 
@@ -62,8 +62,6 @@ class CerfaWriter():
                 # make check box checked:
                 if ('/FT' in annot_obj) and (annot_obj['/FT'] == '/Btn') and (annot_obj['/V'] == 'X'):
                     annot_obj.update({NameObject("/AS"): NameObject('/oui')})
-#                # make annotation read-only:
-#                annot_obj.update({NameObject("/Ff"): NumberObject(1)})
 
 
 
@@ -82,7 +80,12 @@ class CerfaWriter():
 
 
 
-    def download(self, filepath):
+    def download(self, filepath, is_readonly):
+        if is_readonly:
+            for annot in self.writer.getPage(0)['/Annots']:
+                annot_obj = annot.getObject()
+                annot_obj.update({NameObject("/Ff"): NumberObject(1)})
+
         with open(filepath, 'wb') as f:
             self.writer.write(f)
 
