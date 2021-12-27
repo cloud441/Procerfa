@@ -55,13 +55,12 @@ class CerfaWriter():
             if (page_idx == 0):
                 page = self.add_text_box(page, annot_dict['ui_filenb'])
 
-
             self.writer.addPage(page)
 
-            for annot in page['/Annots']:
-                annot_obj = annot.getObject()
-                # make annotation read-only:
-                annot_obj.update({NameObject("/Ff"): NumberObject(1)})
+#            for annot in page['/Annots']:
+#                annot_obj = annot.getObject()
+#                # make annotation read-only:
+#                annot_obj.update({NameObject("/Ff"): NumberObject(1)})
 
 
 
