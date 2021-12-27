@@ -14,6 +14,7 @@ label_match_dict= {
         'AUTRE': 'b10',
         'DEMANDE1': 'cac3',
         'DEMANDE2': 'cac5',
+        'DEMANDE3': 'cac7',
         'DOC4': 'cac7',
         'DOC5': 'cac4',
         'DOC6': 'cac6',

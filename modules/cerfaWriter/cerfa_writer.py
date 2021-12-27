@@ -57,8 +57,11 @@ class CerfaWriter():
 
             self.writer.addPage(page)
 
-#            for annot in page['/Annots']:
-#                annot_obj = annot.getObject()
+            for annot in page['/Annots']:
+                annot_obj = annot.getObject()
+                # make check box checked:
+                if ('/FT' in annot_obj) and (annot_obj['/FT'] == '/Btn') and (annot_obj['/V'] == 'X'):
+                    annot_obj.update({NameObject("/AS"): NameObject('/oui')})
 #                # make annotation read-only:
 #                annot_obj.update({NameObject("/Ff"): NumberObject(1)})
 
