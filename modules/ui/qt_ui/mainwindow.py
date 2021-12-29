@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Procerfa(object):
     def setupUi(self, Procerfa):
         Procerfa.setObjectName("Procerfa")
-        Procerfa.resize(841, 650)
+        Procerfa.resize(850, 719)
         Procerfa.setStyleSheet("Qframe {\n"
 "    background-color: rgb(68, 75, 84);\n"
 "}")
@@ -80,16 +80,18 @@ class Ui_Procerfa(object):
         self.file_nb_edit.setAlignment(QtCore.Qt.AlignCenter)
         self.file_nb_edit.setObjectName("file_nb_edit")
         self.label = QtWidgets.QLabel(self.dropShadowFrame)
-        self.label.setGeometry(QtCore.QRect(90, 380, 71, 21))
+        self.label.setGeometry(QtCore.QRect(30, 380, 131, 21))
         font = QtGui.QFont()
         font.setPointSize(9)
         self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.dropShadowFrame)
         self.label_2.setGeometry(QtCore.QRect(30, 420, 131, 31))
         font = QtGui.QFont()
         font.setPointSize(9)
         self.label_2.setFont(font)
+        self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_2.setObjectName("label_2")
         self.line = QtWidgets.QFrame(self.dropShadowFrame)
         self.line.setGeometry(QtCore.QRect(20, 370, 291, 91))
@@ -103,11 +105,12 @@ class Ui_Procerfa(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.readonly_checkbox = QtWidgets.QCheckBox(self.dropShadowFrame)
-        self.readonly_checkbox.setGeometry(QtCore.QRect(320, 540, 201, 26))
+        self.readonly_checkbox.setGeometry(QtCore.QRect(500, 490, 201, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
         self.readonly_checkbox.setFont(font)
-        self.readonly_checkbox.setStyleSheet("color : rgb(255,255,255)")
+        self.readonly_checkbox.setStyleSheet("color: rgb(255,255,255);\n"
+"")
         self.readonly_checkbox.setObjectName("readonly_checkbox")
         self.label.raise_()
         self.label_2.raise_()
