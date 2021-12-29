@@ -29,11 +29,11 @@ class CerfaWriter():
         # Specific page two listing according to label_match dict:
         pattern = re.compile("[A-X][0-9]+$")
         for k, v in annot_dict.items():
-            if pattern.match(k):
+            if pattern.match(k) and v != "":
                 padding = 2 if (int(k[1:]) > 6) else 0
                 new_key = f"c{(ord(k[0]) - ord('A')) * 22 + padding + int(k[1:])}"
                 if (k[1:] == "14") and (f"c{int(new_key[1:]) - 1}" in fields_update):
-                    fields_update[f"c{int(new_key[1:]) - 1}"] += " " + v
+                    fields_update[f"c{int(new_key[1:]) - 1}"] += " " * 10 + "|" + " " * 10 + v
                 else:
                     fields_update[new_key] = v
 
