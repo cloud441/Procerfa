@@ -235,9 +235,9 @@
      <widget class="Line" name="line">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>90</x>
         <y>420</y>
-        <width>311</width>
+        <width>321</width>
         <height>91</height>
        </rect>
       </property>

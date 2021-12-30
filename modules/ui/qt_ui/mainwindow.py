@@ -96,7 +96,7 @@ class Ui_Procerfa(object):
         self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_2.setObjectName("label_2")
         self.line = QtWidgets.QFrame(self.dropShadowFrame)
-        self.line.setGeometry(QtCore.QRect(100, 420, 311, 91))
+        self.line.setGeometry(QtCore.QRect(90, 420, 321, 91))
         self.line.setStyleSheet("background-color: rgba(255, 255, 255, 40);\n"
 "border-radius: 7px;\n"
 "border: 1px solid;\n"
