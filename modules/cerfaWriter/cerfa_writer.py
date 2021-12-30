@@ -53,7 +53,7 @@ class CerfaWriter():
 
             self.writer.updatePageFormFieldValues(page, fields=update_fields)
             if (page_idx == 0):
-                page = self.add_text_box(page, annot_dict['Texte1'])
+                page = self.add_text_box(page, annot_dict['ui_filenb'])
 
             self.writer.addPage(page)
 
@@ -68,7 +68,7 @@ class CerfaWriter():
     def add_text_box(self, page: PyPDF2.pdf.PageObject, text: str) -> None:
         packet = BytesIO()
         can = canvas.Canvas(packet, pagesize=letter)
-        can.drawString(1050, 685, text)
+        can.drawString(1170 - 7 * len(text), 685, text)
         can.save()
 
         packet.seek(0)

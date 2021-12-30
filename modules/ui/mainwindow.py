@@ -22,6 +22,7 @@ class MainWindow(qtw.QWidget, Ui_Procerfa):
         self.button_download.setEnabled(False)
         self.readonly_checkbox.setEnabled(False)
         self.ge_code_edit.setMaxLength(5)
+        self.file_nb_edit.setMaxLength(20)
         self.readonly_checkbox.stateChanged.connect(self.change_readonly_state)
         self.readonly_state = False
 
@@ -39,9 +40,6 @@ class MainWindow(qtw.QWidget, Ui_Procerfa):
 
         try:
             self.reader = CerfaReader(self.fname[0])
-            annot_dict = self.reader.get_annot_dict()
-            if ('Texte1' in annot_dict) and (annot_dict['Texte1'] != ""):
-                self.file_nb_edit.setText(annot_dict['Texte1'])
 
             self.button_process.setEnabled(True)
         except RuntimeError:
