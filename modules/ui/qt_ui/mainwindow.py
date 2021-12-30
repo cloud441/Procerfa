@@ -89,14 +89,14 @@ class Ui_Procerfa(object):
         self.label.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.dropShadowFrame)
-        self.label_2.setGeometry(QtCore.QRect(90, 470, 121, 31))
+        self.label_2.setGeometry(QtCore.QRect(80, 470, 131, 31))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.label_2.setFont(font)
         self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_2.setObjectName("label_2")
         self.line = QtWidgets.QFrame(self.dropShadowFrame)
-        self.line.setGeometry(QtCore.QRect(90, 420, 321, 91))
+        self.line.setGeometry(QtCore.QRect(80, 420, 331, 91))
         self.line.setStyleSheet("background-color: rgba(255, 255, 255, 40);\n"
 "border-radius: 7px;\n"
 "border: 1px solid;\n"
