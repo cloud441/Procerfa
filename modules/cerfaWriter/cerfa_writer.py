@@ -40,7 +40,7 @@ class CerfaWriter():
         return fields_update
 
 
-    def annotate(self, annot_dict: Dict[str, str]) -> None:
+    def annotate(self, annot_dict: Dict[str, str], reader_nb_page: int) -> None:
         model_reader = PyPDF2.PdfFileReader(model_path, strict=False)
 
         self.writer = PyPDF2.PdfFileWriter()
@@ -48,7 +48,9 @@ class CerfaWriter():
 
         update_fields = self.__build_fields_update(annot_dict)
 
-        for page_idx in range(model_reader.getNumPages()):
+        nb_process_page = 2 if (reader_nb_page == 2) else 1
+
+        for page_idx in range(nb_process_page):
             page = model_reader.getPage(page_idx)
 
             self.writer.updatePageFormFieldValues(page, fields=update_fields)

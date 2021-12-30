@@ -59,7 +59,7 @@ class MainWindow(qtw.QWidget, Ui_Procerfa):
         self.reader.add_ui_fields(self.ge_code_edit.text(), self.file_nb_edit.text())
 
         self.writer = CerfaWriter(config.label_match_dict)
-        self.writer.annotate(self.reader.get_annot_dict())
+        self.writer.annotate(self.reader.get_annot_dict(), self.reader.get_nb_page())
 
         self.button_process.setEnabled(False)
         self.button_download.setEnabled(True)

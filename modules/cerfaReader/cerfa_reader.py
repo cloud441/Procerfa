@@ -6,6 +6,7 @@ class CerfaReader():
 
     __filename: str
     __annot_dict: Dict[str, str]
+    __nb_page: int
 
 
     def __init__(self, input_file_path: str):
@@ -18,9 +19,10 @@ class CerfaReader():
             if (reader.getNumPages() % 2 != 0):
                 raise RuntimeError("Error: input Cerfa PDF doesn't fit the model page number.")
 
-            nb_process_page = 2 if (reader.getNumPages() == 2) else 1
+            self.__nb_page = 2 if (reader.getNumPages() == 2) else 1
 
-            for page_idx in range(nb_process_page):
+
+            for page_idx in range(self.__nb_page):
                 page = reader.getPage(page_idx)
                 page_text = page.extractText()
 
@@ -45,3 +47,6 @@ class CerfaReader():
 
     def get_annot_dict(self) -> Dict[str, str]:
         return self.__annot_dict
+
+    def get_nb_page(self) -> int:
+        return self.__nb_page
