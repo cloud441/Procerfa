@@ -11,7 +11,6 @@ label_match_dict= {
         'FEUILLE': 'b5',
         'PV': 'b8',
         'DELIM': 'b9',
-        'AUTRE': 'b10',
         'DEMANDE1': 'cac3',
         'DEMANDE2': 'cac5',
         'DEMANDE3': 'cac7',
@@ -41,6 +40,6 @@ label_match_dict= {
         'Z10': 'c576',
         'Z11': 'c577',
         'Z12': 'c578',
-        'ui_gecode': 'a13',
-        'Texte1': ""
+        'esquisse': 'b10',
+        'ui_gecode': 'a13'
         }

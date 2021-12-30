@@ -54,6 +54,8 @@ class CerfaWriter():
             self.writer.updatePageFormFieldValues(page, fields=update_fields)
             if (page_idx == 0):
                 page = self.add_text_box(page, annot_dict['ui_filenb'])
+                if not ('=' in annot_dict['ESQUISSE']) and not ('-' in annot_dict['ESQUISSE']):
+                    self.writer.updatePageFormFieldValues(page, fields={self.__labels_dict['esquisse']: "ESQUISSE"})
 
             self.writer.addPage(page)
 
