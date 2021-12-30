@@ -89,7 +89,7 @@ class Ui_Procerfa(object):
         self.label.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.dropShadowFrame)
-        self.label_2.setGeometry(QtCore.QRect(100, 470, 111, 31))
+        self.label_2.setGeometry(QtCore.QRect(90, 470, 121, 31))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.label_2.setFont(font)
