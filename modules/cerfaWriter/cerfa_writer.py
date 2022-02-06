@@ -1,6 +1,6 @@
 import PyPDF2
 import re
-from typing import Dict
+from typing import Dict, List
 from PyPDF2.generic import NameObject, NumberObject
 from io import BytesIO
 from reportlab.pdfgen import canvas
@@ -14,6 +14,7 @@ class CerfaWriter():
 
     __filename: str
     __labels_dict: Dict[str, str]
+    #writer: ...
 
 
     def __init__(self, label_dict):
@@ -40,23 +41,20 @@ class CerfaWriter():
         return fields_update
 
 
-    def annotate(self, annot_dict: Dict[str, str], reader_nb_page: int) -> None:
-        model_reader = PyPDF2.PdfFileReader(model_path, strict=False)
-
+    def annotate(self, annot_dicts: List[Dict[str, str]]) -> None:
         self.writer = PyPDF2.PdfFileWriter()
         self.writer = set_need_appearances_writer(self.writer)
 
-        update_fields = self.__build_fields_update(annot_dict)
+        update_fields_list = [self.__build_fields_update(annot_dict) for annot_dict in annot_dicts]
 
-        nb_process_page = 2 if (reader_nb_page == 2) else 1
+        for page_idx in range(len(annot_dicts)):
+            model_reader = PyPDF2.PdfFileReader(model_path, strict=False)
+            page = model_reader.getPage(0 if (page_idx == 0) else 1)
 
-        for page_idx in range(nb_process_page):
-            page = model_reader.getPage(page_idx)
-
-            self.writer.updatePageFormFieldValues(page, fields=update_fields)
+            self.writer.updatePageFormFieldValues(page, fields=update_fields_list[page_idx])
             if (page_idx == 0):
-                page = self.add_text_box(page, annot_dict['ui_filenb'])
-                if not ('=' in annot_dict['ESQUISSE']) and not ('-' in annot_dict['ESQUISSE']):
+                page = self.add_text_box(page, annot_dicts[0]['ui_filenb'])
+                if not ('=' in annot_dicts[0]['ESQUISSE']) and not ('-' in annot_dicts[0]['ESQUISSE']):
                     self.writer.updatePageFormFieldValues(page, fields={self.__labels_dict['esquisse']: "ESQUISSE"})
 
             self.writer.addPage(page)
