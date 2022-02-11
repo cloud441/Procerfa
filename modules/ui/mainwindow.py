@@ -42,7 +42,7 @@ class MainWindow(qtw.QWidget, Ui_Procerfa):
             self.reader = CerfaReader(self.fname[0])
 
             self.button_process.setEnabled(True)
-        except RuntimeError:
+        except (RuntimeError, ValueError):
             qtw.QMessageBox.critical(self, "Erreur Format","Le fichier ne suit pas le modèle Cerfa du logiciel ou n'est pas un PDF.")
 
 

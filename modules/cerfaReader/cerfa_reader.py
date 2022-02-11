@@ -22,13 +22,12 @@ class CerfaReader():
             self.__nb_dict = reader.getNumPages() / 2 + 1
 
 
-            for page_idx in range(reader.getNumPages()):
+            for page_idx in range(min(reader.getNumPages(), 5)):
                 # We avoid repeated first page in multiple Cerfa document.
                 if (page_idx % 2 == 0) and (page_idx != 0):
                     continue
 
                 page = reader.getPage(page_idx)
-                page_text = page.extractText()
                 annot_dict = {}
 
                 for annot in page['/Annots']:
