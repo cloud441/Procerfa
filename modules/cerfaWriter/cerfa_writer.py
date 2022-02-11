@@ -28,7 +28,7 @@ class CerfaWriter():
                 fields_update[new_label] = annot_dict.pop(old_label)
 
         # Specific page two listing according to label_match dict:
-        pattern = re.compile("[A-X][0-9]+$")
+        pattern = re.compile("[A-Z][0-9]+$")
         for k, v in annot_dict.items():
             if pattern.match(k) and v != "":
                 fields_update[k] = v
@@ -42,9 +42,12 @@ class CerfaWriter():
 
         update_fields_list = [self.__build_fields_update(annot_dict) for annot_dict in annot_dicts]
 
-        for page_idx in range(len(annot_dicts)):
+        for page_idx in range(min(len(annot_dicts), 5)):
             model_reader = PyPDF2.PdfFileReader(model_path, strict=False)
             page = model_reader.getPage(0 if (page_idx == 0) else 1)
+
+            if (page_idx > 1):
+                update_fields_list[page_idx] = {str(page_idx) + k: v for k,v in update_fields_list[page_idx].items()}
 
             self.writer.updatePageFormFieldValues(page, fields=update_fields_list[page_idx])
             if (page_idx == 0):
@@ -52,13 +55,13 @@ class CerfaWriter():
                 if not ('=' in annot_dicts[0]['ESQUISSE']) and not ('-' in annot_dicts[0]['ESQUISSE']):
                     self.writer.updatePageFormFieldValues(page, fields={self.__labels_dict['esquisse']: "ESQUISSE"})
 
-            self.writer.addPage(page)
-
             for annot in page['/Annots']:
                 annot_obj = annot.getObject()
                 # make check box checked:
                 if ('/FT' in annot_obj) and (annot_obj['/FT'] == '/Btn') and (annot_obj['/V'] == 'X'):
                     annot_obj.update({NameObject("/AS"): NameObject('/oui')})
+
+            self.writer.addPage(page)
 
 
 
@@ -79,9 +82,10 @@ class CerfaWriter():
 
     def download(self, filepath, is_readonly):
         if is_readonly:
-            for annot in self.writer.getPage(0)['/Annots']:
-                annot_obj = annot.getObject()
-                annot_obj.update({NameObject("/Ff"): NumberObject(1)})
+            for page_idx in range(self.writer.getNumPages()):
+                for annot in self.writer.getPage(page_idx)['/Annots']:
+                    annot_obj = annot.getObject()
+                    annot_obj.update({NameObject("/Ff"): NumberObject(1)})
 
         with open(filepath, 'wb') as f:
             self.writer.write(f)
